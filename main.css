@@ -7,6 +7,10 @@ body {
     padding: 0;
 }
 
+a:hover, input:hover {
+    cursor: pointer;
+}
+
 .hidden {
     display: none;
 }
@@ -46,12 +50,25 @@ main {
 }
 
 #youtube-results, #podcast-results {
-    background-color: blue;
+    background-color: white;
     min-height: 1000px;
     width: 80%;
     margin: 10px auto;
 }
 
-#podcast-results {
-    background-color: red;
+#youtube-results ul, #podcast-results ul {
+    list-style-type: none;
+}
+
+#youtube-results-list li {
+    border-bottom: solid black 1px;
+}
+
+#youtube-results-list li:last-child {
+    border-bottom: none;
+}
+
+#youtube-results-list li img {
+    height: 80%;
+    width: 80%;
 }

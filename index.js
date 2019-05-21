@@ -18,12 +18,14 @@ function watchForm(){
         getYoutube(searchTerm);
 
         getPodcast(searchTerm);
+
+        $('main').removeClass('hidden');
     })
     
 }
 
 // Makes call to YouTube API to request data based on user input
-function getYoutube(searchTerm, maxResults=25) {
+function getYoutube(searchTerm, maxResults = 8) {
     const params = {
         part: 'snippet',
         q: searchTerm,
@@ -53,6 +55,20 @@ function getYoutube(searchTerm, maxResults=25) {
 // Displays the YouTube data from the API fetch request to the DOM
 function displayYoutube(responseJson) {
     console.log(responseJson);
+
+    for (let i = 0; i < responseJson.items.length; i++) {
+        $('#youtube-results-list').append(`
+            <li>
+                <h3>${responseJson.items[i].snippet.title}</h3>
+                <a href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target="_blank">
+                    <img src="${responseJson.items[i].snippet.thumbnails.high.url}" alt="YouTube video thumbnail">
+                </a>
+                <p>${responseJson.items[i].snippet.description}</p>
+            </li>
+        `)
+    };
+
+
 }
 
 // Makes call to ListenNotes API to request data based on user input
@@ -64,7 +80,7 @@ function getPodcast(searchTerm) {
       };
 
     let params = {
-        q: searchTerm
+        q: searchTerm   
     };
     
     let queryString = convertToString(params);
@@ -87,6 +103,10 @@ function getPodcast(searchTerm) {
 // Displays the ListenNotes data from the API fetch request to the DOM
 function displayPodcast(responseJson) {
     console.log(responseJson)
+
+    for (let n = 0; n < responseJson.results.length; i++) {
+        
+    }
 
 }
 
