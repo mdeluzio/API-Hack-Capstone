@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#search-head {
+    height: 100vh;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    display: block;
+    margin: 0 auto .8em;
+}
+
+h1 {
+    margin: 0;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+h2 {
+    background-color: peru;
+    text-align: center;
+}
+
+form {
+    background-color: olive;
+}
+
+main {
+    min-height: 100vh;
+    background-color: darkgray;
+    padding-top: 20px;
+}
+
+#youtube-results, #podcast-results {
+    background-color: blue;
+    min-height: 1000px;
+    width: 80%;
+    margin: 10px auto;
+}
+
+#podcast-results {
+    background-color: red;
+}
