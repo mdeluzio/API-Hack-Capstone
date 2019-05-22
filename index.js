@@ -20,9 +20,23 @@ function watchForm(){
 
         getPodcast(searchTerm);
 
-        $('main').removeClass('hidden');
+        $('main, #footer').removeClass('hidden');
+
+        $("body, html").animate({ 
+            scrollTop: $("#scroll-here").offset().top }, 800, 'swing');
     })
     
+}
+
+function scrollToTop() {
+    $("#scroll-to-top").on("click", function( e ) {
+    
+        e.preventDefault();
+
+        $("body, html").animate({ 
+        scrollTop: $("header").offset().top }, 800, 'swing');
+    
+    });
 }
 
 // Makes call to YouTube API to request data based on user input
@@ -115,9 +129,9 @@ function displayPodcast(responseJson) {
         $('#podcast-results-list').append(`
             <li>
                 <h3>${responseJson.results[n].podcast_title_original}</h3>
-                <h4>${responseJson.results[n].title_original}</h4>
                 <img src="${responseJson.results[n].thumbnail}" alt="Podcast thumbnail">
-                <p>${responseJson.results[n].description_original}</p>
+                <h4>${responseJson.results[n].title_original}</h4>
+                <p>${responseJson.results[n].description_original.slice(0, 100)}...</p>
                 <a href="${responseJson.results[n].listennotes_url}" target="_blank">Click to Listen</a>
             </li>
         `)
@@ -135,4 +149,7 @@ function convertToString(params) {
 }
 
 $(watchForm);
+
+$(scrollToTop);
+
 

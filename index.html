@@ -11,15 +11,15 @@
 </head>
 <body>
     <header role="banner" id="search-head">
-        <h1>App Name</h1>
-        <h2>app description</h2>
+        <h1>Look or Listen</h1>
+        <h2>What do you want to learn more about today?</h2>
         <form id="searchForm">
             <input type="text" class="searchBox" name="search-box" placeholder="Programming" required>
-            <input type="submit" value="Search">
+            <input type="submit" id="submit-button" value="Search">
         </form>
     </header>
     
-    <main role="main" class="hidden">
+    <main role="main" class="hidden" id="scroll-here">
         <div id="youtube-results">
             <ul id="youtube-results-list">
             </ul>
@@ -33,6 +33,10 @@
 
         </div>
     </main>
+
+    <footer role="contentinfo" id="footer" class="hidden">
+        <a id ="scroll-to-top" href="">Back to Search</a>
+    </footer>
 
 </body>
 </html>
