@@ -60,15 +60,22 @@ main {
     list-style-type: none;
 }
 
-#youtube-results-list li {
+#youtube-results-list li, #podcast-results-list li {
     border-bottom: solid black 1px;
+    white-space: pre-line;
+    word-wrap: break-word;
 }
 
-#youtube-results-list li:last-child {
+#youtube-results-list li:last-child, #podcast-results-list li:last-child {
     border-bottom: none;
 }
 
 #youtube-results-list li img {
+    height: 80%;
+    width: 80%;
+}
+
+#podcast-results-list li img {
     height: 80%;
     width: 80%;
 }

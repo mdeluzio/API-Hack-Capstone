@@ -13,6 +13,7 @@ const podcastUrl = 'https://listen-api.listennotes.com/api/v2/search';
 function watchForm(){
     $('form').submit(function(event) {
         event.preventDefault();
+        
         let searchTerm = $('.searchBox').val();
 
         getYoutube(searchTerm);
@@ -32,6 +33,8 @@ function getYoutube(searchTerm, maxResults = 8) {
         key: youtubeApiKey,
         videoEmbeddable: 'true',
         type: 'video',
+        safeSearch: 'strict',
+        relevanceLanguage: 'en',
         maxResults
     };
 
@@ -55,6 +58,8 @@ function getYoutube(searchTerm, maxResults = 8) {
 // Displays the YouTube data from the API fetch request to the DOM
 function displayYoutube(responseJson) {
     console.log(responseJson);
+
+    $('#youtube-results-list').empty();
 
     for (let i = 0; i < responseJson.items.length; i++) {
         $('#youtube-results-list').append(`
@@ -96,7 +101,7 @@ function getPodcast(searchTerm) {
         })
         .then(responseJson => displayPodcast(responseJson))
         .catch(error => {
-            alert(`An error occured: ${response.statusMessage}`)
+            alert(`An error occured`)
         });
 }
 
@@ -104,9 +109,21 @@ function getPodcast(searchTerm) {
 function displayPodcast(responseJson) {
     console.log(responseJson)
 
-    for (let n = 0; n < responseJson.results.length; i++) {
-        
-    }
+    $('#podcast-results-list').empty();
+
+    for (let n = 0; n < responseJson.results.length; n++) {
+        $('#podcast-results-list').append(`
+            <li>
+                <h3>${responseJson.results[n].podcast_title_original}</h3>
+                <h4>${responseJson.results[n].title_original}</h4>
+                <img src="${responseJson.results[n].thumbnail}" alt="Podcast thumbnail">
+                <p>${responseJson.results[n].description_original}</p>
+                <a href="${responseJson.results[n].listennotes_url}" target="_blank">Click to Listen</a>
+            </li>
+        `)
+    };
+
+
 
 }
 
