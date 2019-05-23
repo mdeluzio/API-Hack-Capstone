@@ -29,6 +29,11 @@ h1, h2 {
     text-align: center;
 }
 
+h2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 main {
     min-height: 100vh;
     background-color: darkgray;
@@ -38,7 +43,7 @@ main {
 
 #youtube-results, #podcast-results {
     background-color: white;
-    min-height: 1000px;
+    /*min-height: 1000px;*/
     width: 80%;
     margin: 10px auto;
 }
@@ -60,13 +65,58 @@ main {
     border-bottom: none;
 }
 
-#youtube-results-list li img {
+#youtube-results-list li img, #podcast-results-list li img {
     height: 80%;
     width: 80%;
+}
+
+#podcast-results-list li {
+    padding-bottom: .5em;
+}
+
+#footer {
+    height: 2em;
+}
+
+@media only screen and (min-width: 1224px) {
+    #youtube-results-list li img {
+        height: 40%;
+        width: 40%;
+    }
+
+    #podcast-results-list li img {
+        height: 30%;
+        width: 30%;
+    }
+
+    main {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #youtube-results, #podcast-results {
+        width: 48%; 
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        margin: 0;
+    }
+
+    .searchBox {
+        width: 40%;
+        height: 3em;
+        margin-right: 1%;
+    }
+
+    #submit-button {
+        width: 5%;
+    }
 }
    
 
-#podcast-results-list li img {
-    height: 80%;
-    width: 80%;
-}
+

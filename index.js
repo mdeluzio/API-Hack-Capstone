@@ -22,12 +22,14 @@ function watchForm(){
 
         $('main, #footer').removeClass('hidden');
 
+        // When user hits submit auto scroll down to results
         $("body, html").animate({ 
             scrollTop: $("#scroll-here").offset().top }, 800, 'swing');
     })
     
 }
 
+// When user clicks on link in footer, scroll back up to the search form
 function scrollToTop() {
     $("#scroll-to-top").on("click", function( e ) {
     
@@ -40,7 +42,7 @@ function scrollToTop() {
 }
 
 // Makes call to YouTube API to request data based on user input
-function getYoutube(searchTerm, maxResults = 8) {
+function getYoutube(searchTerm, maxResults = 10) {
     const params = {
         part: 'snippet',
         q: searchTerm,
