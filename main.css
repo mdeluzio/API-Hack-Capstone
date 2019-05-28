@@ -2,37 +2,99 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+iframe {
+    border: none;
+    width: 15em;
+    height: 10em;
+    display: block;
+    margin: 0 auto;
+
 }
 
 a:hover, input:hover {
     cursor: pointer;
 }
 
+#submit-button:hover {
+    background-color: #DFE1DA;
+    color: #FF1F35;
+}
+
 .hidden {
     display: none;
 }
 
+
 #search-head {
     height: 100vh;
-    background-color: lightgray;
+    background-color: #2b3b41;
+    background: url(images/background-mobile.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
+}
+
+
+.searchBox {
+    width: 90%;
+    color: #FF1F35;
+    text-shadow: 2px 2px 3px #DFE1DA, 3px 3px 4px #555;
+    border: none;
+    border-bottom: solid 3px #f5f8fc;
+    background: none;
+    margin-bottom: 1em;
+    font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.searchBox:focus {
+    outline: none;
+}
+
+#submit-button {
+    background-color: #FF1F35;
+    border: none;
+    height: 60%;
+    width: 90%;
+    border-radius: 5px;
+    color: #DFE1DA;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: .02em;
 }
 
 input {
     display: block;
     margin: 0 auto .8em;
+   
 }
 
-h1, h2 {
+.title {
+    font-size: 3.8em;
+    font-family: 'Righteous', cursive;
+    letter-spacing: .03em;
+}
+
+.title, .tagline {
     text-align: center;
+    color: #DFE1DA;
+    text-shadow: 3px 3px 4px #555;
 }
 
-h2 {
-    margin-top: 2em;
-    margin-bottom: 2em;
+.tagline {
+    margin-top: .5em;
+    margin-bottom: 1.5em;
+    letter-spacing: .02em;
+    padding: 0 1%;
 }
+
+
 
 main {
     min-height: 100vh;
@@ -43,7 +105,6 @@ main {
 
 #youtube-results, #podcast-results {
     background-color: white;
-    /*min-height: 1000px;*/
     width: 80%;
     margin: 10px auto;
 }
@@ -59,15 +120,19 @@ main {
     word-wrap: break-word;
     width: 90%;
     margin: 0 auto;
+    position: relative;
 }
+
 
 #youtube-results-list li:last-child, #podcast-results-list li:last-child {
     border-bottom: none;
 }
 
-#youtube-results-list li img, #podcast-results-list li img {
+#podcast-results-list li img {
     height: 80%;
     width: 80%;
+    display: block;
+    margin: 0 auto;
 }
 
 #podcast-results-list li {
@@ -78,44 +143,85 @@ main {
     height: 2em;
 }
 
-@media only screen and (min-width: 1224px) {
-    #youtube-results-list li img {
-        height: 40%;
-        width: 40%;
-    }
-
-    #podcast-results-list li img {
-        height: 30%;
-        width: 30%;
-    }
-
-    main {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    #youtube-results, #podcast-results {
-        width: 40%; 
-    }
-
-    form {
-        display: flex;
+@media only screen and (min-width: 700px) {
+    
+    #search-head {
         justify-content: center;
     }
 
-    input {
-        margin: 0;
+    h1 {
+        font-size: 4.8em;
+    }
+
+    h2 {
+        font-size: 2.5em;
     }
 
     .searchBox {
-        width: 40%;
-        height: 3em;
-        margin-right: 1%;
+        font-size: 3.6em;
     }
+}
 
-    #submit-button {
-        width: 5%;
-    }
+@media only screen and (min-width: 1224px) {
+
+    
+#search-head {
+    background: url(images/background-large.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    justify-content: start;
+}
+
+h1 {
+    margin-bottom: 5%;
+}
+
+h2 {
+    margin-bottom: 3em;
+}
+
+.searchBox {
+    width: 40%;
+    height: 2.2em;
+    margin-right: 1%;
+    font-size: 3em;
+}
+
+#submit-button {
+    width: 20%;
+    height: 2em;
+    margin-top: 2em;
+}
+
+#podcast-results-list li img {
+    height: 30%;
+    width: 30%;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#youtube-results, #podcast-results {
+    width: 40%; 
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    margin: 0;
+}
+
+iframe {
+    width: 50%;
+    height: 40%;
+}
 }
    
 

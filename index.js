@@ -80,16 +80,15 @@ function displayYoutube(responseJson) {
     for (let i = 0; i < responseJson.items.length; i++) {
         $('#youtube-results-list').append(`
             <li>
+            <iframe src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+            
                 <h3>${responseJson.items[i].snippet.title}</h3>
-                <a href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target="_blank">
-                    <img src="${responseJson.items[i].snippet.thumbnails.high.url}" alt="YouTube video thumbnail">
-                </a>
+                 
                 <p>${responseJson.items[i].snippet.description}</p>
             </li>
         `)
     };
-
-
 }
 
 // Makes call to ListenNotes API to request data based on user input
@@ -101,7 +100,7 @@ function getPodcast(searchTerm) {
       };
 
     let params = {
-        q: searchTerm   
+        q: searchTerm, 
     };
     
     let queryString = convertToString(params);
@@ -138,9 +137,6 @@ function displayPodcast(responseJson) {
             </li>
         `)
     };
-
-
-
 }
 
 // Converts query parameters from an object to a string
@@ -153,5 +149,6 @@ function convertToString(params) {
 $(watchForm);
 
 $(scrollToTop);
+
 
 

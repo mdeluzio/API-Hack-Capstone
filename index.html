@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type ="text/javascript" src="index.js"></script>
 </head>
 <body>
+    <div class="youtube-player hidden">
+        <p>pizza</p>
+    </div>
+        
     <header role="banner" id="search-head">
-        <h1>Look or Listen</h1>
-        <h2>What do you want to learn more about today?</h2>
+        <h1 class="title">Look or <br>Listen</h1>
+        <h2 class="tagline">What do you want to learn more about today?</h2>
         <form id="searchForm">
-            <input type="text" class="searchBox" name="search-box" placeholder="How to code" required>
+            <input type="text" class="searchBox" name="search-box" value="How to code" autofocus required>
             <input type="submit" id="submit-button" value="Search">
         </form>
     </header>
@@ -23,6 +29,7 @@
     <main role="main" class="hidden" id="scroll-here">
         <div id="youtube-results">
             <ul id="youtube-results-list">
+            
             </ul>
 
         </div>
@@ -33,6 +40,7 @@
             </ul>
 
         </div>
+        
     </main>
 
     <footer role="contentinfo" id="footer" class="hidden">
