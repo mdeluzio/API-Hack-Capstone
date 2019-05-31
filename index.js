@@ -22,9 +22,16 @@ function watchForm(){
 
         $('main, #footer').removeClass('hidden');
 
-        $('#more-on-youtube').append(`
-            <a id="more-on-youtube-link"href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchTerm)}">See more on YouTube</a>
+        $('#more-on-youtube').empty().append(`
+            <a id="more-on-youtube-link" href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchTerm)}" target="_blank">
+                See more on YouTube</a>
         `)
+
+        $('#more-on-listennotes').empty().append(`
+            <a id="more-on-listennotes-link" href="https://www.listennotes.com/search/?q=${encodeURIComponent(searchTerm)}" target="_blank">
+                See more on Listen Notes</a>
+        `)
+
 
         // When user hits submit auto scroll down to results
         $("body, html").animate({ 
@@ -150,9 +157,10 @@ function displayPodcast(responseJson) {
         $('#podcast-results-list').append(`
             <li>
                 <img src="${responseJson.results[n].thumbnail}" alt="Podcast thumbnail">
-                <h3>${responseJson.results[n].podcast_title_original}</h3>
-                <h4>${responseJson.results[n].title_original}</h4>
-                <a href="${responseJson.results[n].listennotes_url}" target="_blank">Click to Listen</a>
+                <h3><a class="channel-id" href="${responseJson.results[n].podcast_listennotes_url}" target="_blank">
+                    ${responseJson.results[n].podcast_title_original}</a></h3>
+                <h4 class="episode-title">${responseJson.results[n].title_original}</h4>
+                <p class="listen-link-box"><a class="listen-link" href="${responseJson.results[n].listennotes_url}" target="_blank">Listen</a></p>
             </li>
         `)
     };

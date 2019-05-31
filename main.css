@@ -9,7 +9,7 @@ a:hover, input:hover {
     cursor: pointer;
 }
 
-#submit-button, #more-on-youtube-link, .channel-id {
+#submit-button, #more-on-youtube-link, #more-on-listennotes-link, .channel-id, .listen-link {
     -webkit-transition: color .8s ease-out;
     -moz-transition: color .8s ease-out;
     -o-transition: color .8s ease-out;
@@ -150,7 +150,8 @@ iframe {
     margin: 0 auto;
 }
 
-#youtube-results-list li h3 {
+#youtube-results-list li h3, #podcast-results-list li h3 {
+    font-size: 1.3em;
     text-align: center;
     letter-spacing: .01em;
     font-weight: 600;
@@ -169,14 +170,14 @@ iframe {
     font-family: 'Roboto', sans-serif;
 }
 
-#more-on-youtube {
+#more-on-youtube, #more-on-listennotes {
     text-align: center;
     border-top: solid 1px black;
     padding-top: 4%;
     padding-bottom: 3%;
 }
 
-#more-on-youtube-link {
+#more-on-youtube-link, #more-on-listennotes-link {
     text-decoration: none;
     font-size: 1.6em;
     font-weight: 600;
@@ -185,8 +186,7 @@ iframe {
     color: #FF1F35
 }
 
-#more-on-youtube-link:hover {
-    /*color: #e81092;*/
+#more-on-youtube-link:hover, #more-on-listennotes-link:hover {
     color: #DFE1DA;
     background-color: #FF1F35
 }
@@ -198,8 +198,27 @@ iframe {
     margin: 0 auto;
 }
 
-#podcast-results-list li {
-    padding-bottom: .5em;
+.episode-title {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.listen-link-box {
+    text-align: center;
+}
+
+.listen-link {
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 1.5%;
+    color: #FF1F35
+}
+
+.listen-link:hover {
+    color: #DFE1DA;
+    background-color: #FF1F35
 }
 
 #footer {
@@ -236,15 +255,23 @@ iframe {
         height: 16em;
     }
 
-    #youtube-results-list li h3 {
+    .channel-id {
         font-size: 1.8em;
         font-weight: 700;
     }
 
-    #youtube-results-list li p {
+    #youtube-results-list li p, .episode-title {
         font-size: 1.3em;
     }
     
+    #podcast-results-list li img {
+        height: 40%;
+        width: 40%;
+    }
+
+    .listen-link {
+        font-size: 
+    }
 }
 
 @media only screen and (min-width: 1224px) {
@@ -306,6 +333,11 @@ iframe {
     iframe {
         width: 80%;
         height: 16em;
+    }
+
+    #podcast-results-list li img {
+        height: 45%;
+        width: 45%;
     }
 }
    
