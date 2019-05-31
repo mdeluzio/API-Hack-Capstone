@@ -32,7 +32,7 @@ a:hover, input:hover {
 
 #search-head {
     height: 100vh;
-    background: url(images/background-mobile.jpg) no-repeat fixed; 
+    background: url(images/background-mobile.jpg) no-repeat scroll; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
