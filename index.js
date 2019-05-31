@@ -22,6 +22,10 @@ function watchForm(){
 
         $('main, #footer').removeClass('hidden');
 
+        $('#more-on-youtube').append(`
+            <a id="more-on-youtube-link"href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchTerm)}">See more on YouTube</a>
+        `)
+
         // When user hits submit auto scroll down to results
         $("body, html").animate({ 
             scrollTop: $("#scroll-here").offset().top }, 800, 'swing');
@@ -31,9 +35,8 @@ function watchForm(){
 
 // When user clicks on link in footer, scroll back up to the search form
 function scrollToTop() {
-    $("#scroll-to-top").on("click", function( e ) {
-    
-        e.preventDefault();
+    $("#scroll-to-top").on("click", function(event) {
+        event.preventDefault();
 
         $("body, html").animate({ 
         scrollTop: $("header").offset().top }, 800, 'swing');
@@ -66,9 +69,9 @@ function getYoutube(searchTerm, maxResults = 10) {
             throw new Error(response.statusMessage);
         })
         .then(responseJson => displayYoutube(responseJson))
-        .catch(error => {
+        .catch(err => {
             alert(`An error occured: ${response.statusMessage}`)
-        });    
+        });   
 }
 
 // Displays the YouTube data from the API fetch request to the DOM
@@ -77,22 +80,31 @@ function displayYoutube(responseJson) {
 
     $('#youtube-results-list').empty();
 
+    if (responseJson.items.length === 0) {
+        $('#youtube-results-list').append(`
+            <li>
+                <p class="youtube-result-0">No results found. Try another search.</p>
+            </li>
+        `)
+    }
+
     for (let i = 0; i < responseJson.items.length; i++) {
         $('#youtube-results-list').append(`
             <li>
-            <iframe src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
-            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
-            
-                <h3>${responseJson.items[i].snippet.title}</h3>
-                 
+                <iframe src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                <h3><a class="channel-id" href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}"
+                    target="_blank">${responseJson.items[i].snippet.title}</a></h3>
                 <p>${responseJson.items[i].snippet.description}</p>
             </li>
         `)
     };
 }
 
+
 // Makes call to ListenNotes API to request data based on user input
-function getPodcast(searchTerm) {
+function getPodcast(searchTerm
+    ) {
 
     const options = {
         headers: new Headers({
@@ -126,13 +138,20 @@ function displayPodcast(responseJson) {
 
     $('#podcast-results-list').empty();
 
+    if (responseJson.results.length === 0) {
+        $('#podcast-results-list').append(`
+            <li>
+                <p class="podcast-result-0">No results found. Try to be more specific.</p>
+            </li>
+        `)
+    }
+
     for (let n = 0; n < responseJson.results.length; n++) {
         $('#podcast-results-list').append(`
             <li>
-                <h3>${responseJson.results[n].podcast_title_original}</h3>
                 <img src="${responseJson.results[n].thumbnail}" alt="Podcast thumbnail">
+                <h3>${responseJson.results[n].podcast_title_original}</h3>
                 <h4>${responseJson.results[n].title_original}</h4>
-                <p>${responseJson.results[n].description_original.slice(0, 100)}...</p>
                 <a href="${responseJson.results[n].listennotes_url}" target="_blank">Click to Listen</a>
             </li>
         `)
@@ -149,6 +168,7 @@ function convertToString(params) {
 $(watchForm);
 
 $(scrollToTop);
+
 
 
 
