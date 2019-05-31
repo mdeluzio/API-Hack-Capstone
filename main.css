@@ -5,11 +5,20 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    background-color: #2b3b41;
+}
+
+.youtube-result-0, .podcast-result-0 {
+    font-size: 1.3em;
+    color: red;
+}
+
 a:hover, input:hover {
     cursor: pointer;
 }
 
-#submit-button, #more-on-youtube-link, #more-on-listennotes-link, .channel-id, .listen-link {
+#submit-button, #more-on-youtube-link, #more-on-listennotes-link, .channel-id, .listen-link, #scroll-to-top {
     -webkit-transition: color .8s ease-out;
     -moz-transition: color .8s ease-out;
     -o-transition: color .8s ease-out;
@@ -17,19 +26,12 @@ a:hover, input:hover {
     transition: color .8s ease-out;
     }
 
-#submit-button:hover {
-    background-color: #DFE1DA;
-    color: #FF1F35;
-}
-
 .hidden {
     display: none;
 }
 
-
 #search-head {
     height: 100vh;
-    background-color: #2b3b41;
     background: url(images/background-mobile.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -58,8 +60,8 @@ a:hover, input:hover {
 #submit-button {
     background-color: #FF1F35;
     border: none;
-    height: 60%;
-    width: 90%;
+    height: 40%;
+    width:70%;
     border-radius: 5px;
     color: #DFE1DA;
     font-size: 26px;
@@ -67,10 +69,14 @@ a:hover, input:hover {
     letter-spacing: .02em;
 }
 
+#submit-button:hover {
+    background-color: #DFE1DA;
+    color: #FF1F35;
+}
+
 input {
     display: block;
     margin: 0 auto .8em;
-   
 }
 
 .title {
@@ -94,7 +100,6 @@ input {
 
 main {
     min-height: 100vh;
-    background-color: #2b3b41;
     padding-top: 2em;
     padding-bottom: 1.5em;
 }
@@ -136,7 +141,6 @@ main {
     position: relative;
     line-height: 1.3;
 }
-
 
 #youtube-results-list li:last-child, #podcast-results-list li:last-child {
     border-bottom: none;
@@ -222,7 +226,20 @@ iframe {
 }
 
 #footer {
-    height: 2em;
+    height: 2.3em;
+    text-align: center;
+    border: none;
+}
+
+#scroll-to-top {
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #FF1F35;
+}
+
+#scroll-to-top:hover {
+    color: #DFE1DA;
 }
 
 @media only screen and (max-width: 330px) {
@@ -251,7 +268,7 @@ iframe {
     }
 
     iframe {
-        width: 24em;
+        width: 22em;
         height: 16em;
     }
 
@@ -269,9 +286,14 @@ iframe {
         width: 40%;
     }
 
-    .listen-link {
-        font-size: 
+    #footer {
+        height: 2.6em;
     }
+    
+    #scroll-to-top {
+        font-size: 2em;
+    }
+
 }
 
 @media only screen and (min-width: 1224px) {
@@ -307,8 +329,8 @@ iframe {
     }
 
     #podcast-results-list li img {
-        height: 30%;
-        width: 30%;
+        height: 25%;
+        width: 25%;
     }
 
     main {
@@ -338,6 +360,12 @@ iframe {
     #podcast-results-list li img {
         height: 45%;
         width: 45%;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    #search-head {
+        min-height: 800px;
     }
 }
    

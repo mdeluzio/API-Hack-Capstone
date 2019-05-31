@@ -21,7 +21,7 @@ function watchForm(){
         getPodcast(searchTerm);
 
         $('main, #footer').removeClass('hidden');
-
+// Sets the target of the "See more" links on the results page based on the user input
         $('#more-on-youtube').empty().append(`
             <a id="more-on-youtube-link" href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchTerm)}" target="_blank">
                 See more on YouTube</a>
@@ -37,7 +37,6 @@ function watchForm(){
         $("body, html").animate({ 
             scrollTop: $("#scroll-here").offset().top }, 800, 'swing');
     })
-    
 }
 
 // When user clicks on link in footer, scroll back up to the search form
@@ -47,7 +46,6 @@ function scrollToTop() {
 
         $("body, html").animate({ 
         scrollTop: $("header").offset().top }, 800, 'swing');
-    
     });
 }
 
@@ -76,8 +74,12 @@ function getYoutube(searchTerm, maxResults = 10) {
             throw new Error(response.statusMessage);
         })
         .then(responseJson => displayYoutube(responseJson))
-        .catch(err => {
-            alert(`An error occured: ${response.statusMessage}`)
+        .catch(error => {
+            $('#youtube-results-list').append(`
+            <li>
+                <p class="youtube-result-0">There was an Error. Try again later</p>
+            </li>
+            `)
         });   
 }
 
@@ -86,7 +88,7 @@ function displayYoutube(responseJson) {
     console.log(responseJson);
 
     $('#youtube-results-list').empty();
-
+//Takes care of alerting user of an error if there are no results found from Youtube
     if (responseJson.items.length === 0) {
         $('#youtube-results-list').append(`
             <li>
@@ -110,8 +112,7 @@ function displayYoutube(responseJson) {
 
 
 // Makes call to ListenNotes API to request data based on user input
-function getPodcast(searchTerm
-    ) {
+function getPodcast(searchTerm) {
 
     const options = {
         headers: new Headers({
@@ -135,7 +136,12 @@ function getPodcast(searchTerm
         })
         .then(responseJson => displayPodcast(responseJson))
         .catch(error => {
-            alert(`An error occured`)
+            $('#podcast-results-list').append(`
+            <li>
+                <p class="podcast-result-0">There was an Error. Try again later</p>
+            </li>
+            `)
+           // alert(`An error occured`)
         });
 }
 
@@ -144,7 +150,7 @@ function displayPodcast(responseJson) {
     console.log(responseJson)
 
     $('#podcast-results-list').empty();
-
+//Takes care of alerting user of an error if there are no results found from Listen Notes
     if (responseJson.results.length === 0) {
         $('#podcast-results-list').append(`
             <li>

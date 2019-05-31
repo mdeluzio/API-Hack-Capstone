@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Look or Listen</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="normalize.css">
@@ -13,15 +13,11 @@
     <script type ="text/javascript" src="index.js"></script>
 </head>
 <body>
-    <div class="youtube-player hidden">
-        <p>pizza</p>
-    </div>
-        
     <header role="banner" id="search-head">
         <h1 class="title">Look or <br>Listen</h1>
         <h2 class="tagline">What do you want to learn more about today?</h2>
         <form id="searchForm">
-            <input type="text" class="searchBox" name="search-box" value="How to code" autofocus required>
+            <input type="text" class="searchBox" name="search-box" autofocus required>
             <input type="submit" id="submit-button" value="Search">
         </form>
     </header>
@@ -30,26 +26,20 @@
         <div id="youtube-results">
             <h2 id="youtube-tagline"><img id="youtube-logo" src="images/youtube.png" alt="Youtube logo"> Look</h2>
             <ul id="youtube-results-list">
-            
             </ul>
             <p id="more-on-youtube"></p>
-
         </div>
 
         <div id="podcast-results">
             <h2 id="podcast-tagline"><img id="podcast-logo" src="images/2a2428415a8c8e8cbeac6025965d7b20.png" alt="Headphones logo"> Listen</h2>
             <ul id="podcast-results-list">
-
             </ul>
             <p id="more-on-listennotes"></p>
-
-        </div>
-        
+        </div> 
     </main>
-
+    
     <footer role="contentinfo" id="footer" class="hidden">
         <a id ="scroll-to-top" href="">Back to Search</a>
     </footer>
-
 </body>
 </html>
