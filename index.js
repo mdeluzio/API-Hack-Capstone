@@ -85,7 +85,6 @@ function getYoutube(searchTerm, maxResults = 10) {
 
 // Displays the YouTube data from the API fetch request to the DOM
 function displayYoutube(responseJson) {
-    console.log(responseJson);
 
     $('#youtube-results-list').empty();
 //Takes care of alerting user of an error if there are no results found from Youtube
@@ -146,7 +145,6 @@ function getPodcast(searchTerm) {
 
 // Displays the ListenNotes data from the API fetch request to the DOM
 function displayPodcast(responseJson) {
-    console.log(responseJson)
 
     $('#podcast-results-list').empty();
 //Takes care of alerting user of an error if there are no results found from Listen Notes
