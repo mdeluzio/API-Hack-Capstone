@@ -24,7 +24,7 @@ a:hover, input:hover {
     -o-transition: color .8s ease-out;
     -ms-transition: color .8s ease-out;
     transition: color .8s ease-out;
-    }
+}
 
 .hidden {
     display: none;

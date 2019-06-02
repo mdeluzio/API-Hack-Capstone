@@ -141,7 +141,6 @@ function getPodcast(searchTerm) {
                 <p class="podcast-result-0">There was an Error. Try again later</p>
             </li>
             `)
-           // alert(`An error occured`)
         });
 }
 
