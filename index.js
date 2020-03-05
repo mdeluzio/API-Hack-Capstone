@@ -2,7 +2,7 @@
 
 const listenNotesApiKey = '117c42b9078743dc89b2323493dc967d';
 
-const youtubeApiKey = 'AIzaSyDuI1rTVHwSXIsHEua0RWBpEqUQF3wsEU4';
+const youtubeApiKey = 'AIzaSyDmkawauepl1vapsOEdmd8ivBwxzaHUBKw';
 
 const youtubeUrl = 'https://www.googleapis.com/youtube/v3/search';
 
